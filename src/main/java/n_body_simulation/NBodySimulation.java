@@ -57,8 +57,9 @@ public class NBodySimulation extends JPanel implements MouseListener, MouseMotio
             particles.add(new Particle(x, y, vx, vy, mass));
         }
 
-        // Timer for updating the simulation
-        Timer timer = new Timer(16, _ -> {
+        // Start the timer (~60 FPS)
+        int delay = 1000 / 60;
+        Timer timer = new Timer(delay, _ -> {
             updateSimulation();
             repaint();
         });
